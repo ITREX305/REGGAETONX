@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGGAETONX 🔥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Glitch Hero */
+        .hero {
+            height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glitch {
+            font-family: 'Black Ops One', cursive;
+            font-size: 10rem;
+            position: relative;
+            color: #fff;
+            animation: glitch-main 2s infinite;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: 'REGGAETONX';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #FF1744;
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #00FFFF;
+            z-index: -2;
+        }
+
+        @keyframes glitch-main {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-3px, 3px); }
+            20% { clip-path: inset(92% 0 1% 0); transform: translate(3px, -3px); }
+            40% { clip-path: inset(43% 0 1% 0); transform: translate(-3px, 3px); }
+            60% { clip-path: inset(25% 0 58% 0); transform: translate(3px, -3px); }
+            80% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, 3px); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(10% 0 85% 0); transform: translate(3px, -3px); }
+            20% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, 3px); }
+            40% { clip-path: inset(25% 0 58% 0); transform: translate(3px, -3px); }
+            60% { clip-path: inset(43% 0 1% 0); transform: translate(-3px, 3px); }
+            80% { clip-path: inset(92% 0 1% 0); transform: translate(3px, -3px); }
+        }
+
+        .glitch-subtitle {
+            position: absolute;
+            bottom: 100px;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FF1744;
+            animation: flicker 1s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .scroll-btn {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem 3rem;
+            background: #FF1744;
+            color: #fff;
+            border: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(255,23,68,0.5);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+
+        .scroll-btn:hover {
+            background: #F50057;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Dropdown Navigation Bar */
+        .nav-bar {
+            background: linear-gradient(135deg, #1a0033, #000);
+            border-top: 3px solid #FF1744;
+            border-bottom: 3px solid #FF1744;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(255,23,68,0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
+
+        .nav-item {
+            position: relative;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .nav-btn {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            color: #fff;
+            border: none;
+            border-right: 1px solid rgba(255,23,68,0.3);
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-item:last-child .nav-btn {
+            border-right: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,23,68,0.2);
+            color: #FF1744;
+        }
+
+        .nav-btn.active {
+            background: #FF1744;
+            color: #000;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(10,0,21,0.98);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FF1744;
+            border-top: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .nav-item:hover .dropdown {
+            max-height: 400px;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #aaa;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .dropdown a:hover {
+            background: rgba(255,23,68,0.2);
+            color: #FF1744;
+            padding-left: 2rem;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Content Section */
+        .content {
+            background: #000;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-family: 'Black Ops One', cursive;
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, #FF1744, #D500F9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Album Cards with Stock Photos */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .album-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .album-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,23,68,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s;
+            z-index: 1;
+        }
+
+        .album-card:hover::before {
+            left: 100%;
+        }
+
+        .album-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255,23,68,0.6);
+        }
+
+        .artist-photo {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artist-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,23,68,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .album-card:hover .play-overlay {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .album-info {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .album-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .album-artist {
+            font-size: 1.1rem;
+            color: #FF1744;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .album-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .stream-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stream-btn {
+            padding: 0.6rem 1.2rem;
+            background: #FF1744;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .stream-btn:hover {
+            background: #F50057;
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255,23,68,0.5);
+        }
+
+        /* Animated Playlist Section */
+        .playlist-section {
+            background: linear-gradient(135deg, #1a0033, #000);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playlist-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,23,68,0.03) 10px,
+                rgba(255,23,68,0.03) 20px
+            );
+            animation: slidePattern 20s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        .playlist-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .playlist-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .playlist-title {
+            font-family: 'Black Ops One', cursive;
+            font-size: 5rem;
+            background: linear-gradient(90deg, #FF1744, #F50057, #D500F9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        .playlist-subtitle {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-top: 1rem;
+        }
+
+        .playlist-box {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border: 3px solid #FF1744;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 80px rgba(255,23,68,0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .embed-instructions {
+            background: #0a0a0a;
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px dashed #333;
+            text-align: center;
+            color: #666;
+        }
+
+        .embed-instructions strong {
+            display: block;
+            color: #FF1744;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .embed-examples {
+            margin-top: 1.5rem;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* Ad Zones */
+        .ad-zone {
+            background: rgba(26,0,51,0.3);
+            border: 3px dashed #FF1744;
+            padding: 3rem;
+            margin: 4rem auto;
+            max-width: 900px;
+            text-align: center;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .ad-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            color: #FF1744;
+            font-weight: 900;
+            letter-spacing: 3px;
+            border: 2px solid #FF1744;
+            border-radius: 20px;
+        }
+
+        .ad-content {
+            padding: 2rem;
+            color: #444;
+            font-size: 1.1rem;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 3px solid #FF1744;
+        }
+
+        footer p {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #FF1744;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #F50057;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .glitch { font-size: 4rem; }
+            .glitch-subtitle { font-size: 1.2rem; bottom: 80px; }
+            .nav-container { flex-direction: column; }
+            .nav-btn { border-right: none; border-bottom: 1px solid rgba(255,23,68,0.3); }
+            .nav-item { max-width: 100%; }
+            .playlist-title { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .album-grid { grid-template-columns: 1fr; }
+            .artist-photo { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Glitch Hero -->
+    <div class="hero">
+        <div class="glitch">REGGAETONX</div>
+        <div class="glitch-subtitle">⚡ UNSTOPPABLE BEATS ⚡</div>
+        <button class="scroll-btn" onclick="document.querySelector('.nav-bar').scrollIntoView({behavior: 'smooth'})">
+            EXPLORE NOW ↓
+        </button>
+    </div>
+
+    <!-- Dropdown Navigation Bar -->
+    <div class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-item">
+                <button class="nav-btn">1. ARTISTS</button>
+                <div class="dropdown">
+                    <a href="#">Bad Bunny</a>
+                    <a href="#">Karol G</a>
+                    <a href="#">J Balvin</a>
+                    <a href="#">Daddy Yankee</a>
+                    <a href="#">Ozuna</a>
+                    <a href="#">Anuel AA</a>
+                    <a href="#">View All Artists →</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">2. ALBUMS</button>
+                <div class="dropdown">
+                    <a href="#">New Releases</a>
+                    <a href="#">Top Albums 2026</a>
+                    <a href="#">Classic Reggaeton</a>
+                    <a href="#">Upcoming Albums</a>
+                    <a href="#">Featured Collections</a>
+                    <a href="#">View All Albums →</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">3. MODELS</button>
+                <div class="dropdown">
+                    <a href="#">Featured Models</a>
+                    <a href="#">Music Video Stars</a>
+                    <a href="#">Cover Models</a>
+                    <a href="#">Rising Talent</a>
+                    <a href="#">Collaborations</a>
+                    <a href="#">View All Models →</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">4. DISCOGRÁFICA</button>
+                <div class="dropdown">
+                    <a href="#">Rimas Entertainment</a>
+                    <a href="#">Hear This Music</a>
+                    <a href="#">Carbon Fiber Music</a>
+                    <a href="#">Pina Records</a>
+                    <a href="#">El Cartel Records</a>
+                    <a href="#">View All Labels →</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">5. NEWS</button>
+                <div class="dropdown">
+                    <a href="#">Breaking News</a>
+                    <a href="#">Tour Announcements</a>
+                    <a href="#">New Collaborations</a>
+                    <a href="#">Industry Updates</a>
+                    <a href="#">Exclusive Interviews</a>
+                    <a href="#">View All News →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Latest Releases with Stock Photos -->
+        <div class="section">
+            <h2 class="section-title">LATEST DROPS</h2>
+            <div class="album-grid">
+                <!-- Bad Bunny -->
+                <div class="album-card">
+                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-name">NADIE SABE</div>
+                        <div class="album-artist">Bad Bunny</div>
+                        <div class="album-date">Feb 14, 2026</div>
+                        <div class="stream-links">
+                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
+                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
+                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Karol G -->
+                <div class="album-card">
+                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-name">MI EX TENÍA RAZÓN</div>
+                        <div class="album-artist">Karol G</div>
+                        <div class="album-date">Feb 12, 2026</div>
+                        <div class="stream-links">
+                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
+                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
+                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- J Balvin -->
+                <div class="album-card">
+                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80');">
+                        <div class="play-overlay">▶</div>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-name">TRANQUILO</div>
+                        <div class="album-artist">J Balvin</div>
+                        <div class="album-date">Feb 10, 2026</div>
+                        <div class="stream-links">
+                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
+                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
+                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Zone 1 -->
+        <div class="ad-zone">
+            <div class="ad-label">SPONSORED</div>
+            <div class="ad-content">
+                <div>
+                    <p><strong style="color: #FF1744; font-size: 1.3rem;">BANNER AD - 728x90</strong></p>
+                    <p style="margin-top: 1rem;">Google AdSense Code Here</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Or Direct Sponsor Banner</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Playlist Section -->
+        <div class="playlist-section">
+            <div class="playlist-container">
+                <div class="playlist-header">
+                    <h2 class="playlist-title">🔥 FUEGO PLAYLIST</h2>
+                    <p class="playlist-subtitle">Top reggaeton hits • Updated daily</p>
+                </div>
+                <div class="playlist-box">
+                    <div class="embed-instructions">
+                        <strong>🎵 EMBED YOUR PLAYLIST HERE</strong>
+                        <p style="margin: 1rem 0;">Replace this section with your streaming embed code</p>
+                        <div class="embed-examples">
+                            <p><strong style="color: #F50057;">YouTube Playlist:</strong><br>
+                            <code style="color: #888;">&lt;iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></p>
+                            
+                            <p style="margin-top: 1rem;"><strong style="color: #1DB954;">Spotify Playlist:</strong><br>
+                            <code style="color: #888;">&lt;iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID" width="100%" height="450" frameBorder="0"&gt;&lt;/iframe&gt;</code></p>
+                            
+                            <p style="margin-top: 1rem;"><strong style="color: #FF5500;">SoundCloud Playlist:</strong><br>
+                            <code style="color: #888;">&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=YOUR_PLAYLIST_URL"&gt;&lt;/iframe&gt;</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Zone 2 -->
+        <div class="ad-zone">
+            <div class="ad-label">SPONSORED</div>
+            <div class="ad-content">
+                <div>
+                    <p><strong style="color: #FF1744; font-size: 1.3rem;">RECTANGLE AD - 300x250</strong></p>
+                    <p style="margin-top: 1rem;">Google AdSense Code Here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Zone 3 -->
+        <div class="ad-zone">
+            <div class="ad-label">SPONSORED</div>
+            <div class="ad-content">
+                <div>
+                    <p><strong style="color: #FF1744; font-size: 1.3rem;">LEADERBOARD AD - 970x250</strong></p>
+                    <p style="margin-top: 1rem;">Premium Sponsor Banner</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 1.2rem; color: #FF1744; margin-bottom: 1rem;">🔥 REGGAETONX 🔥</p>
+        <p>&copy; 2026 ReggaetonX.com - All Rights Reserved</p>
+        <p style="margin-top: 1rem;">
+            <a href="#">Privacy Policy</a> • 
+            <a href="#">Terms of Service</a> • 
+            <a href="#">Advertise With Us</a> • 
+            <a href="#">Contact</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            All music embedded legally from official streaming services
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            Stock photos from Unsplash (royalty-free)
+        </p>
+    </footer>
+</body>
+</html>
