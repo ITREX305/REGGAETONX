@@ -1,769 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGGAETONX 🔥</title>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Glitch Hero */
-        .hero {
-            height: 100vh;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glitch {
-            font-family: 'Black Ops One', cursive;
-            font-size: 10rem;
-            position: relative;
-            color: #fff;
-            animation: glitch-main 2s infinite;
-            text-align: center;
-            line-height: 1;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: 'REGGAETONX';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch::before {
-            animation: glitch-1 0.5s infinite;
-            color: #FF1744;
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch-2 0.5s infinite;
-            color: #00FFFF;
-            z-index: -2;
-        }
-
-        @keyframes glitch-main {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-3px, 3px); }
-            20% { clip-path: inset(92% 0 1% 0); transform: translate(3px, -3px); }
-            40% { clip-path: inset(43% 0 1% 0); transform: translate(-3px, 3px); }
-            60% { clip-path: inset(25% 0 58% 0); transform: translate(3px, -3px); }
-            80% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, 3px); }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { clip-path: inset(10% 0 85% 0); transform: translate(3px, -3px); }
-            20% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, 3px); }
-            40% { clip-path: inset(25% 0 58% 0); transform: translate(3px, -3px); }
-            60% { clip-path: inset(43% 0 1% 0); transform: translate(-3px, 3px); }
-            80% { clip-path: inset(92% 0 1% 0); transform: translate(3px, -3px); }
-        }
-
-        .glitch-subtitle {
-            position: absolute;
-            bottom: 100px;
-            width: 100%;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 900;
-            color: #FF1744;
-            animation: flicker 1s infinite;
-        }
-
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .scroll-btn {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1rem 3rem;
-            background: #FF1744;
-            color: #fff;
-            border: none;
-            font-weight: 900;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 100;
-            border-radius: 50px;
-            box-shadow: 0 10px 40px rgba(255,23,68,0.5);
-            animation: bounce 2s ease infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-15px); }
-        }
-
-        .scroll-btn:hover {
-            background: #F50057;
-            transform: translateX(-50%) scale(1.1);
-        }
-
-        /* Dropdown Navigation Bar */
-        .nav-bar {
-            background: linear-gradient(135deg, #1a0033, #000);
-            border-top: 3px solid #FF1744;
-            border-bottom: 3px solid #FF1744;
-            padding: 0;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 10px 30px rgba(255,23,68,0.3);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-        }
-
-        .nav-item {
-            position: relative;
-            flex: 1;
-            max-width: 250px;
-        }
-
-        .nav-btn {
-            width: 100%;
-            padding: 1.5rem 2rem;
-            background: transparent;
-            color: #fff;
-            border: none;
-            border-right: 1px solid rgba(255,23,68,0.3);
-            font-weight: 900;
-            font-size: 1rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 2px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .nav-item:last-child .nav-btn {
-            border-right: none;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255,23,68,0.2);
-            color: #FF1744;
-        }
-
-        .nav-btn.active {
-            background: #FF1744;
-            color: #000;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(10,0,21,0.98);
-            backdrop-filter: blur(10px);
-            border: 2px solid #FF1744;
-            border-top: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        .nav-item:hover .dropdown {
-            max-height: 400px;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 1rem 1.5rem;
-            color: #aaa;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .dropdown a:hover {
-            background: rgba(255,23,68,0.2);
-            color: #FF1744;
-            padding-left: 2rem;
-        }
-
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        /* Content Section */
-        .content {
-            background: #000;
-            padding: 4rem 2rem;
-        }
-
-        .section {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-title {
-            font-family: 'Black Ops One', cursive;
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(90deg, #FF1744, #D500F9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Album Cards with Stock Photos */
-        .album-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .album-card {
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .album-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,23,68,0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.8s;
-            z-index: 1;
-        }
-
-        .album-card:hover::before {
-            left: 100%;
-        }
-
-        .album-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(255,23,68,0.6);
-        }
-
-        .artist-photo {
-            width: 100%;
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .artist-photo::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(255,23,68,0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        .album-card:hover .play-overlay {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .album-info {
-            padding: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .album-name {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .album-artist {
-            font-size: 1.1rem;
-            color: #FF1744;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .album-date {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .stream-links {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .stream-btn {
-            padding: 0.6rem 1.2rem;
-            background: #FF1744;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .stream-btn:hover {
-            background: #F50057;
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(255,23,68,0.5);
-        }
-
-        /* Animated Playlist Section */
-        .playlist-section {
-            background: linear-gradient(135deg, #1a0033, #000);
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .playlist-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,23,68,0.03) 10px,
-                rgba(255,23,68,0.03) 20px
-            );
-            animation: slidePattern 20s linear infinite;
-        }
-
-        @keyframes slidePattern {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(20px, 20px); }
-        }
-
-        .playlist-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        .playlist-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .playlist-title {
-            font-family: 'Black Ops One', cursive;
-            font-size: 5rem;
-            background: linear-gradient(90deg, #FF1744, #F50057, #D500F9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 3s ease infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.5); }
-        }
-
-        .playlist-subtitle {
-            font-size: 1.5rem;
-            color: #aaa;
-            margin-top: 1rem;
-        }
-
-        .playlist-box {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            border: 3px solid #FF1744;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 80px rgba(255,23,68,0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .embed-instructions {
-            background: #0a0a0a;
-            padding: 3rem;
-            border-radius: 15px;
-            border: 2px dashed #333;
-            text-align: center;
-            color: #666;
-        }
-
-        .embed-instructions strong {
-            display: block;
-            color: #FF1744;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .embed-examples {
-            margin-top: 1.5rem;
-            text-align: left;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        /* Ad Zones */
-        .ad-zone {
-            background: rgba(26,0,51,0.3);
-            border: 3px dashed #FF1744;
-            padding: 3rem;
-            margin: 4rem auto;
-            max-width: 900px;
-            text-align: center;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .ad-label {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #000;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.8rem;
-            color: #FF1744;
-            font-weight: 900;
-            letter-spacing: 3px;
-            border: 2px solid #FF1744;
-            border-radius: 20px;
-        }
-
-        .ad-content {
-            padding: 2rem;
-            color: #444;
-            font-size: 1.1rem;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Footer */
-        footer {
-            background: #0a0a0a;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 3px solid #FF1744;
-        }
-
-        footer p {
-            color: #666;
-            margin: 0.5rem 0;
-        }
-
-        footer a {
-            color: #FF1744;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #F50057;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .glitch { font-size: 4rem; }
-            .glitch-subtitle { font-size: 1.2rem; bottom: 80px; }
-            .nav-container { flex-direction: column; }
-            .nav-btn { border-right: none; border-bottom: 1px solid rgba(255,23,68,0.3); }
-            .nav-item { max-width: 100%; }
-            .playlist-title { font-size: 3rem; }
-            .section-title { font-size: 2.5rem; }
-            .album-grid { grid-template-columns: 1fr; }
-            .artist-photo { height: 300px; }
-        }
-    </style>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9112979471385403"
+     crossorigin="anonymous"></script>
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VBNDNCP1E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0VBNDNCP1E');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All American Car Brands (2026) — Every Brand, Active & Historic | AmericanCarBrands.com</title>
+<meta name="description" content="The most complete list of American car brands. 100+ brands — Big Three, EV, luxury, performance, trucks, and historic. All researched and updated 2026.">
+<link rel="canonical" href="https://americancarbrands.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--red-dark:#9B0B22;--white:#F5F0E8;--off-white:#EDE8DC;--gray-light:#C9C4B8;--gray:#7A7570;--black:#0D0D0D;--dark:#141414;--dark2:#1C1C1C;--dark3:#242424;--gold:#C9962A;--green:#2DB37A;--blue:#1A6FD4;--orange:#E07B39;}
+html{font-size:17px;scroll-behavior:smooth;}html.fs-sm{font-size:15px;}html.fs-md{font-size:17px;}html.fs-lg{font-size:20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.65;overflow-x:hidden;}
+
+/* FLOATING WIDGET */
+.fs-toggle{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;align-items:stretch;background:var(--dark2);border:1px solid rgba(255,255,255,0.22);border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.85);}
+.fs-label{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);padding:0 12px;border-right:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;white-space:nowrap;background:var(--dark3);}
+.fs-btn{padding:12px 16px;background:transparent;color:rgba(255,255,255,0.75);border:none;border-right:1px solid rgba(255,255,255,0.1);font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:0.04em;cursor:pointer;transition:all 0.15s;line-height:1;}
+.fs-btn:last-child{border-right:none;}.fs-btn:hover{background:var(--dark3);color:var(--white);}.fs-btn.on{background:var(--red);color:white;}
+.home-btn,.top-btn{font-size:0.95rem;text-decoration:none;display:flex;align-items:center;justify-content:center;}.top-btn{font-size:1.1rem;font-weight:bold;}
+
+/* TICKER */
+.ticker-bar{position:fixed;top:0;left:0;right:0;z-index:200;height:32px;background:var(--red);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(0,0,0,0.25);}
+.ticker-label{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.75);padding:0 14px;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.22);flex-shrink:0;}
+.ticker-track{display:flex;animation:tickerScroll 60s linear infinite;will-change:transform;}.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{font-family:'Barlow Condensed',sans-serif;font-size:0.76rem;font-weight:600;letter-spacing:0.07em;color:white;white-space:nowrap;padding:0 28px;border-right:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;gap:8px;}
+.ticker-item span{opacity:0.6;font-size:0.65rem;}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* NAV */
+nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(13,13,13,0.97);border-bottom:1px solid rgba(200,16,46,0.3);backdrop-filter:blur(10px);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;letter-spacing:0.1em;color:var(--white);text-decoration:none;}.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--red);}
+.nav-badge{background:var(--red);color:white;padding:7px 18px;font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;}.nav-badge:hover{background:var(--red-dark);}
+
+/* SPLIT HERO */
+.split-hero{display:grid;grid-template-columns:1fr 1fr;min-height:460px;margin-top:96px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.hero-left{background:var(--dark);padding:72px 60px 64px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+.hero-left::after{content:'38';position:absolute;right:-12px;bottom:-24px;font-family:'Bebas Neue',sans-serif;font-size:220px;line-height:0.85;color:rgba(255,255,255,0.03);pointer-events:none;}
+.hero-right{background:var(--red);padding:72px 60px 64px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+.hero-right::after{content:'AMERICAN';position:absolute;bottom:-14px;right:-6px;font-family:'Bebas Neue',sans-serif;font-size:80px;line-height:0.85;color:rgba(0,0,0,0.13);pointer-events:none;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--green);}
+.hero-big-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);line-height:0.85;letter-spacing:-0.02em;color:var(--white);}
+.hero-big-label{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:10px;}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,6.5vw,90px);line-height:0.88;letter-spacing:0.02em;color:white;margin-bottom:20px;}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.92);line-height:1.75;max-width:400px;font-weight:400;}
+
+/* STAT BAR */
+.stat-bar{display:flex;background:var(--dark2);border-bottom:1px solid rgba(255,255,255,0.06);}
+.stat-pill{flex:1;padding:24px 28px;border-right:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:background 0.18s;display:flex;flex-direction:column;position:relative;}
+.stat-pill:last-child{border-right:none;}
+.stat-pill::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform 0.2s;transform-origin:left;}
+.stat-pill[data-uc="w"]::after{background:var(--white);}.stat-pill[data-uc="r"]::after{background:var(--red);}.stat-pill[data-uc="g"]::after{background:var(--gold);}.stat-pill[data-uc="b"]::after{background:var(--blue);}.stat-pill[data-uc="o"]::after{background:var(--orange);}.stat-pill[data-uc="gr"]::after{background:var(--green);}
+.stat-pill:hover{background:rgba(255,255,255,0.04);}.stat-pill:hover::after,.stat-pill.active::after{transform:scaleX(1);}.stat-pill.active{background:rgba(255,255,255,0.05);}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;}
+.stat-l{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:5px;}
+.stat-pill:hover .stat-l,.stat-pill.active .stat-l{color:var(--white);}
+
+/* FILTER */
+.filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:24px 60px;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.07);}
+.filter-btn{background:transparent;color:rgba(255,255,255,0.88);border:1px solid rgba(255,255,255,0.2);padding:9px 22px;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.18s;border-radius:2px;}
+.filter-btn:hover,.filter-btn.active{background:var(--red);border-color:var(--red);color:white;}
+.fsw{margin-left:auto;position:relative;}.fsw input{background:var(--dark2);border:1px solid rgba(255,255,255,0.15);color:var(--white);padding:10px 16px 10px 40px;font-family:'Barlow',sans-serif;font-size:0.92rem;outline:none;border-radius:2px;width:260px;transition:border-color 0.2s;}.fsw input:focus{border-color:var(--red);}.fsw input::placeholder{color:rgba(255,255,255,0.35);}.fsw-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.5);pointer-events:none;}
+
+/* BRAND CARDS */
+.brands-section{padding:0 60px 80px;}
+.cat-label{display:flex;align-items:center;gap:16px;font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:0.09em;margin:52px 0 24px;color:var(--white);}
+.cat-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.cat-label .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cat-label .cnt{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;color:rgba(255,255,255,0.65);}
+.brands-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px;}
+.brand-card{background:var(--dark2);padding:28px 30px 22px;text-decoration:none;position:relative;overflow:hidden;transition:all 0.25s;border:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;min-height:185px;}
+.brand-card::after{content:attr(data-logo);position:absolute;right:12px;bottom:8px;font-family:'Bebas Neue',sans-serif;font-size:3.6rem;line-height:1;letter-spacing:0;opacity:0.07;pointer-events:none;transition:opacity 0.25s;user-select:none;}
+.brand-card:hover::after{opacity:0.16;}
+.brand-card[data-ac="r"]::after{color:var(--red);}.brand-card[data-ac="g"]::after{color:var(--gold);}.brand-card[data-ac="b"]::after{color:var(--blue);}.brand-card[data-ac="o"]::after{color:var(--orange);}.brand-card[data-ac="gr"]::after{color:var(--green);}
+.brand-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;transform:scaleY(0);transition:transform 0.25s;transform-origin:bottom;}
+.brand-card[data-ac="r"]::before{background:var(--red);}.brand-card[data-ac="g"]::before{background:var(--gold);}.brand-card[data-ac="b"]::before{background:var(--blue);}.brand-card[data-ac="o"]::before{background:var(--orange);}.brand-card[data-ac="gr"]::before{background:var(--green);}
+.brand-card:hover{background:var(--dark3);transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,0.55);}.brand-card:hover::before{transform:scaleY(1);}
+.bc-cat{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:10px;}
+.cc-active{color:var(--green);}.cc-ev{color:var(--blue);}.cc-luxury{color:var(--gold);}.cc-truck{color:var(--orange);}.cc-perf{color:var(--red);}
+.bc-name{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.04em;color:#FFF;line-height:1;margin-bottom:10px;}
+.bc-sub{font-size:0.95rem;color:rgba(255,255,255,0.92);line-height:1.65;flex:1;font-weight:400;}
+.bc-foot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.09);}
+.bc-tk{font-family:'Barlow Condensed',sans-serif;font-size:0.74rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);background:rgba(201,150,42,0.15);padding:3px 9px;border-radius:2px;}
+.bc-yr{font-family:'Barlow Condensed',sans-serif;font-size:0.74rem;color:rgba(255,255,255,0.75);letter-spacing:0.05em;}
+.bc-arr{font-size:1rem;color:var(--red);opacity:0;transition:opacity 0.2s,transform 0.2s;margin-left:auto;}.brand-card:hover .bc-arr{opacity:1;transform:translateX(4px);}
+.card-hidden{display:none!important;}
+
+/* DEFUNCT CTA BAND */
+.defunct-band{background:var(--dark);border-top:3px solid rgba(255,255,255,0.06);padding:56px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.defunct-band-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px;}
+.defunct-band-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);line-height:0.92;letter-spacing:0.03em;margin-bottom:16px;}.defunct-band-h2 em{color:var(--red);font-style:normal;}
+.defunct-band-p{font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.75;max-width:580px;}
+.defunct-band-brands{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.db-chip{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:2px;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1);}
+.defunct-band-cta{display:flex;flex-direction:column;gap:14px;flex-shrink:0;}
+.btn-defunct{display:block;background:var(--red);color:white;padding:18px 40px;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.1em;text-decoration:none;border-radius:2px;text-align:center;transition:background 0.2s;white-space:nowrap;}.btn-defunct:hover{background:var(--red-dark);}
+.btn-defunct-outline{display:block;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.22);padding:12px 32px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;text-align:center;transition:all 0.2s;}.btn-defunct-outline:hover{border-color:var(--red);color:var(--red);}
+
+/* DIRECTORY TABLE */
+.dir-sec{background:var(--dark);padding:72px 60px 80px;border-top:3px solid var(--red);}
+.dir-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.dir-title{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:0.04em;}
+.dir-cnt{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+.dir-ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.dir-sw{position:relative;flex:1;max-width:400px;}.dir-sw input{width:100%;background:var(--dark2);border:1px solid rgba(255,255,255,0.14);color:var(--white);padding:12px 16px 12px 44px;font-family:'Barlow',sans-serif;font-size:0.92rem;outline:none;border-radius:2px;transition:border-color 0.2s;}.dir-sw input:focus{border-color:var(--red);}.dir-sw input::placeholder{color:rgba(255,255,255,0.3);}
+.dir-sw-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.5);pointer-events:none;}
+.dir-flt{display:flex;gap:8px;flex-wrap:wrap;}
+.dfb{background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.18);padding:8px 18px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;border-radius:2px;}.dfb:hover,.dfb.active{background:var(--red);border-color:var(--red);color:white;}
+.result-note{font-family:'Barlow Condensed',sans-serif;font-size:0.74rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px;}
+.tbl-wrap{overflow-x:auto;border:1px solid rgba(255,255,255,0.08);border-radius:4px;}
+.dt{width:100%;border-collapse:collapse;}.dt th{background:var(--dark3);color:rgba(255,255,255,0.88);padding:13px 20px;text-align:left;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);white-space:nowrap;cursor:pointer;user-select:none;transition:color 0.2s;}.dt th:hover,.dt th.sorted{color:var(--red);}
+.dt td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.78);vertical-align:middle;font-size:0.88rem;}.dt tbody tr:last-child td{border-bottom:none;}.dt tbody tr:hover td{background:rgba(255,255,255,0.03);}.dt tbody tr.rh{display:none;}
+.tn{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:0.04em;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s;}.tn:hover{color:var(--red);}
+.tdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.tbg{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;}
+.tbg-a{background:rgba(45,179,122,0.15);color:var(--green);}.tbg-e{background:rgba(26,111,212,0.15);color:var(--blue);}.tbg-l{background:rgba(201,150,42,0.15);color:var(--gold);}.tbg-p{background:rgba(200,16,46,0.15);color:var(--red);}.tbg-t{background:rgba(224,123,57,0.15);color:var(--orange);}
+.ttk{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);background:rgba(201,150,42,0.13);padding:2px 8px;border-radius:2px;white-space:nowrap;}
+.tpv{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);}
+.tv{font-family:'Barlow Condensed',sans-serif;font-size:0.74rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;}.tv:hover{text-decoration:underline;}
+.sa{font-size:0.6rem;opacity:0.45;margin-left:3px;}
+
+/* SEO */
+.seo{padding:64px 60px;background:var(--black);}.seo h2{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:0.05em;margin-bottom:18px;}.seo p{color:rgba(255,255,255,0.72);font-size:0.96rem;line-height:1.85;margin-bottom:16px;max-width:800px;}.seo a{color:var(--red);text-decoration:none;}.seo a:hover{text-decoration:underline;}
+
+/* FOOTER */
+footer{background:#080808;padding:60px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:12px;letter-spacing:0.08em;}.footer-brand-name span{color:var(--red);}
+.footer-desc{font-size:0.85rem;color:var(--gray);line-height:1.7;max-width:280px;}
+.footer-col-title{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}.footer-links a{color:var(--gray-light);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}.footer-links a:hover{color:var(--red);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.78rem;color:var(--gray);flex-wrap:wrap;gap:14px;}
+.footer-social{display:flex;gap:12px;align-items:center;}.footer-social a{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:all 0.2s;text-decoration:none;}.footer-social a svg{width:16px;height:16px;}.footer-social a:hover{transform:translateY(-2px);}
+.footer-social a.ig:hover{background:#E1306C;border-color:#E1306C;}.footer-social a.tt:hover{background:#111;border-color:rgba(255,255,255,0.3);}.footer-social a.xc:hover{background:#111;border-color:rgba(255,255,255,0.3);}.footer-social a.gm:hover{background:#EA4335;border-color:#EA4335;}
+.footer-flag{font-size:1.2rem;}
+
+@media(max-width:900px){
+  nav{padding:0 20px;}.nav-links{display:none;}
+  .split-hero{grid-template-columns:1fr;}.stat-bar{flex-wrap:wrap;}.stat-pill{min-width:50%;}
+  .filter-row,.brands-section,.defunct-band,.dir-sec,.seo,footer{padding-left:20px;padding-right:20px;}
+  .fsw{margin-left:0;width:100%;}.fsw input{width:100%;}
+  .fs-toggle{bottom:12px;right:12px;}.footer-top{grid-template-columns:1fr 1fr;}.defunct-band{flex-direction:column;}
+}
+</style>
 </head>
 <body>
-    <!-- Glitch Hero -->
-    <div class="hero">
-        <div class="glitch">REGGAETONX</div>
-        <div class="glitch-subtitle">⚡ UNSTOPPABLE BEATS ⚡</div>
-        <button class="scroll-btn" onclick="document.querySelector('.nav-bar').scrollIntoView({behavior: 'smooth'})">
-            EXPLORE NOW ↓
-        </button>
+
+<!-- FLOATING WIDGET -->
+<div class="fs-toggle">
+  <button class="fs-btn top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#8593;</button>
+  <span class="fs-label">Font</span>
+  <button class="fs-btn" id="fs1" onclick="setFs('fs-sm')">A</button>
+  <button class="fs-btn on" id="fs2" onclick="setFs('fs-md')">A+</button>
+  <button class="fs-btn" id="fs3" onclick="setFs('fs-lg')">A++</button>
+</div>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ticker-label">&#x1F697; Live</div>
+  <div class="ticker-track">
+    <div class="ticker-item">Ford F-Series <span>47th year as America&#39;s #1 seller &middot; 2026</span></div>
+    <div class="ticker-item">Tesla Cybertruck <span>Production ramping &middot; Austin TX</span></div>
+    <div class="ticker-item">Rivian R2 <span>Deliveries on track &middot; 2026</span></div>
+    <div class="ticker-item">Cadillac CELESTIQ <span>$340K ultra-luxury EV &middot; Detroit</span></div>
+    <div class="ticker-item">Scout Motors <span>Factory groundbreaking &middot; Columbia SC</span></div>
+    <div class="ticker-item">Lucid Gravity <span>516-mile range record &middot; Newark CA</span></div>
+    <div class="ticker-item">Ram 1500 REV <span>Electric full-size pickup &middot; 2026</span></div>
+    <div class="ticker-item">Jeep <span>Highest brand loyalty in the industry</span></div>
+    <div class="ticker-item">Hennessey Venom F5 <span>300+ mph target &middot; Sealy TX</span></div>
+    <div class="ticker-item">Buick <span>#1 J.D. Power reliability 2025</span></div>
+    <div class="ticker-item">Ford F-Series <span>47th year as America&#39;s #1 seller &middot; 2026</span></div>
+    <div class="ticker-item">Tesla Cybertruck <span>Production ramping &middot; Austin TX</span></div>
+    <div class="ticker-item">Rivian R2 <span>Deliveries on track &middot; 2026</span></div>
+    <div class="ticker-item">Cadillac CELESTIQ <span>$340K ultra-luxury EV &middot; Detroit</span></div>
+    <div class="ticker-item">Scout Motors <span>Factory groundbreaking &middot; Columbia SC</span></div>
+    <div class="ticker-item">Lucid Gravity <span>516-mile range record &middot; Newark CA</span></div>
+    <div class="ticker-item">Ram 1500 REV <span>Electric full-size pickup &middot; 2026</span></div>
+    <div class="ticker-item">Jeep <span>Highest brand loyalty in the industry</span></div>
+    <div class="ticker-item">Hennessey Venom F5 <span>300+ mph target &middot; Sealy TX</span></div>
+    <div class="ticker-item">Buick <span>#1 J.D. Power reliability 2025</span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">AMERICAN<span>CAR</span>BRANDS</a>
+  <ul class="nav-links">
+    <li><a href="active-american-car-brands.html" class="active">Active Brands</a></li>
+    <li><a href="american-ev-startups.html">EV Startups</a></li>
+    <li><a href="defunct-american-car-brands.html">Defunct</a></li>
+    <li><a href="insurance-quote.html">Insurance</a></li>
+    <li><a href="ford.html">Brand Pages</a></li>
+  </ul>
+  <a href="active-american-car-brands.html" class="nav-badge">View All Active &#x2192;</a>
+</nav>
+
+<!-- SPLIT HERO -->
+<div class="split-hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Active Brands Only &middot; Updated 2026</div>
+    <div class="hero-big-num">38</div>
+    <div class="hero-big-label">Active American Car Brands &mdash; 2026</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-h1">38 Active<br>American Brands</div>
+    <div class="hero-sub">The Big Three, EV pioneers, luxury marques, performance specialists, and truck builders — every American car brand actively producing vehicles in 2026.</div>
+  </div>
+</div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-pill active" data-uc="w" onclick="filterByType('all',this)">
+    <div class="stat-n" style="color:var(--white)">38</div>
+    <div class="stat-l">Active Brands &#x2197;</div>
+  </div>
+  <div class="stat-pill" data-uc="gr" onclick="filterByType('big3',this)">
+    <div class="stat-n" style="color:var(--green)">38</div>
+    <div class="stat-l">Active (2026) &#x2197;</div>
+  </div>
+  <div class="stat-pill" data-uc="g" onclick="filterByType('luxury',this)">
+    <div class="stat-n" style="color:var(--gold)">6</div>
+    <div class="stat-l">Luxury Brands &#x2197;</div>
+  </div>
+  <div class="stat-pill" data-uc="b" onclick="filterByType('ev',this)">
+    <div class="stat-n" style="color:var(--blue)">8</div>
+    <div class="stat-l">EV Brands &#x2197;</div>
+  </div>
+  <div class="stat-pill" data-uc="r" onclick="filterByType('performance',this)">
+    <div class="stat-n" style="color:var(--red)">9</div>
+    <div class="stat-l">Performance &#x2197;</div>
+  </div>
+  <div class="stat-pill" data-uc="o" onclick="filterByType('truck',this)">
+    <div class="stat-n" style="color:var(--orange)">4</div>
+    <div class="stat-l">Truck Brands &#x2197;</div>
+  </div>
+</div>
+
+<!-- FILTER + SEARCH -->
+<div class="filter-row" id="brands">
+  <button class="filter-btn active" onclick="cardFilter('all',this)">All Active</button>
+  <button class="filter-btn" onclick="cardFilter('big3',this)">Big Three</button>
+  <button class="filter-btn" onclick="cardFilter('ev',this)">&#x26A1; EV</button>
+  <button class="filter-btn" onclick="cardFilter('luxury',this)">&#x2726; Luxury</button>
+  <button class="filter-btn" onclick="cardFilter('performance',this)">&#x1F3C1; Performance</button>
+  <button class="filter-btn" onclick="cardFilter('truck',this)">&#x1F6FB; Trucks</button>
+  <div class="fsw">
+    <span class="fsw-icon">&#x1F50D;</span>
+    <input type="text" placeholder="Search brands&hellip;" oninput="cardSearch(this.value)" id="csi">
+  </div>
+</div>
+
+<!-- BRAND CARDS -->
+<div class="brands-section" id="cardsSection">
+
+  <!-- BIG THREE -->
+  <div class="cat-label" id="lbl-big3"><span class="dot" style="background:var(--red)"></span>Big Three Companies<span class="cnt">Ford Motor Co. &middot; General Motors &middot; Stellantis</span></div>
+  <div class="brands-grid">
+    <a href="ford.html" class="brand-card" data-types="big3" data-ac="r" data-logo="FORD"><div class="bc-cat cc-active">&#x25CF; Active &middot; Big Three &middot; Ford Motor Co.</div><div class="bc-name">Ford</div><div class="bc-sub">America&#39;s most iconic automaker since 1903. F-Series has been the nation&#39;s #1 best-selling vehicle for 47 consecutive years. Home of the Mustang, Bronco, and F-150 Lightning EV.</div><div class="bc-foot"><span class="bc-tk">NYSE: F</span><span class="bc-yr">Est. 1903 &middot; Dearborn, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="lincoln.html" class="brand-card" data-types="big3 luxury" data-ac="g" data-logo="LINCOLN"><div class="bc-cat cc-luxury">&#x2726; Luxury &middot; Ford Motor Co.</div><div class="bc-name">Lincoln</div><div class="bc-sub">Ford&#39;s luxury division with a presidential legacy. The Aviator, Nautilus, and Navigator define refined American prestige. One of the most improved luxury brands of the 2020s.</div><div class="bc-foot"><span class="bc-tk">NYSE: F</span><span class="bc-yr">Est. 1917 &middot; Dearborn, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="chevrolet.html" class="brand-card" data-types="big3" data-ac="r" data-logo="CHEVY"><div class="bc-cat cc-active">&#x25CF; Active &middot; Big Three &middot; General Motors</div><div class="bc-name">Chevrolet</div><div class="bc-sub">GM&#39;s volume brand and America&#39;s most consistently popular nameplate. Home of the Corvette, Silverado, Equinox EV, and Blazer EV. 115 years of continuous production.</div><div class="bc-foot"><span class="bc-tk">NYSE: GM</span><span class="bc-yr">Est. 1911 &middot; Detroit, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="cadillac.html" class="brand-card" data-types="big3 luxury ev" data-ac="g" data-logo="CADILLAC"><div class="bc-cat cc-luxury">&#x2726; Luxury &middot; EV &middot; General Motors</div><div class="bc-name">Cadillac</div><div class="bc-sub">"The Standard of the World." Reinventing itself with the electric LYRIQ, CELESTIQ ($340K), and ESCALADE IQ. Committed to full EV lineup by 2030.</div><div class="bc-foot"><span class="bc-tk">NYSE: GM</span><span class="bc-yr">Est. 1902 &middot; Detroit, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="buick.html" class="brand-card" data-types="big3 luxury" data-ac="g" data-logo="BUICK"><div class="bc-cat cc-luxury">&#x2726; Near-Luxury &middot; General Motors</div><div class="bc-name">Buick</div><div class="bc-sub">America&#39;s oldest surviving auto brand &mdash; founded 1899. Consistently tops J.D. Power reliability rankings and earns the highest owner satisfaction scores in its segment.</div><div class="bc-foot"><span class="bc-tk">NYSE: GM</span><span class="bc-yr">Est. 1899 &middot; Detroit, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="gmc.html" class="brand-card" data-types="big3 truck" data-ac="o" data-logo="GMC"><div class="bc-cat cc-truck">&#x1F6FB; Trucks/SUVs &middot; General Motors</div><div class="bc-name">GMC</div><div class="bc-sub">GM&#39;s professional-grade truck and SUV brand. Sierra, Yukon, Canyon, and the electric Hummer EV. Positioned above Chevrolet: more prestige, higher price.</div><div class="bc-foot"><span class="bc-tk">NYSE: GM</span><span class="bc-yr">Est. 1911 &middot; Detroit, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="dodge.html" class="brand-card" data-types="big3 performance" data-ac="r" data-logo="DODGE"><div class="bc-cat cc-perf">&#x1F3C1; Performance &middot; Big Three &middot; Stellantis</div><div class="bc-name">Dodge</div><div class="bc-sub">Muscle car royalty. Challenger, Charger, and Viper are cultural touchstones. Now pivoting to the electric Charger Daytona &mdash; its most polarizing move yet.</div><div class="bc-foot"><span class="bc-tk">NYSE: STLA</span><span class="bc-yr">Est. 1900 &middot; Auburn Hills, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="ram.html" class="brand-card" data-types="big3 truck" data-ac="o" data-logo="RAM"><div class="bc-cat cc-truck">&#x1F6FB; Trucks &middot; Big Three &middot; Stellantis</div><div class="bc-name">Ram</div><div class="bc-sub">Stellantis&#39;s standalone truck division since 2010. The Ram 1500 consistently challenges the F-150 for #1. Known for smooth coil-spring rear suspension and class-leading towing.</div><div class="bc-foot"><span class="bc-tk">NYSE: STLA</span><span class="bc-yr">Est. 2010 &middot; Auburn Hills, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="jeep.html" class="brand-card" data-types="big3 truck" data-ac="o" data-logo="JEEP"><div class="bc-cat cc-truck">&#x1F6FB; Off-Road/SUV &middot; Big Three &middot; Stellantis</div><div class="bc-name">Jeep</div><div class="bc-sub">The original off-roader. Wrangler, Grand Cherokee, and Gladiator define American adventure culture. Jeep earns the highest brand loyalty scores in the industry, year after year.</div><div class="bc-foot"><span class="bc-tk">NYSE: STLA</span><span class="bc-yr">Est. 1943 &middot; Toledo, OH</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="chrysler.html" class="brand-card" data-types="big3" data-ac="r" data-logo="CHRYSLER"><div class="bc-cat cc-active">&#x25CF; Active &middot; Big Three &middot; Stellantis</div><div class="bc-name">Chrysler</div><div class="bc-sub">Once the third pillar of the Big Three, now down to the Pacifica minivan. 100 years of American history &mdash; but its future under Stellantis remains uncertain.</div><div class="bc-foot"><span class="bc-tk">NYSE: STLA</span><span class="bc-yr">Est. 1925 &middot; Auburn Hills, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+  </div>
+
+  <!-- EV BRANDS -->
+  <div class="cat-label" id="lbl-ev"><span class="dot" style="background:var(--blue)"></span>EV Brands<span class="cnt">American electric vehicle companies in active production</span></div>
+  <div class="brands-grid">
+    <a href="tesla.html" class="brand-card" data-types="ev" data-ac="b" data-logo="TESLA"><div class="bc-cat cc-ev">&#x26A1; EV Leader &middot; Independent &middot; Austin TX</div><div class="bc-name">Tesla</div><div class="bc-sub">The EV pioneer. Model S, 3, X, Y, Cybertruck, and Semi. ~45% US EV market share. The company that proved electric cars can be desirable, fast, and mainstream.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: TSLA</span><span class="bc-yr">Est. 2003 &middot; Austin, TX</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="rivian.html" class="brand-card" data-types="ev truck" data-ac="b" data-logo="RIVIAN"><div class="bc-cat cc-ev">&#x26A1; EV Trucks &middot; Independent &middot; Irvine CA</div><div class="bc-name">Rivian</div><div class="bc-sub">Michigan-born EV adventure brand. R1T pickup and R1S SUV are critically acclaimed. Amazon 100K delivery van contract stabilises the business. Factory in Normal, Illinois.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: RIVN</span><span class="bc-yr">Est. 2009 &middot; Irvine, CA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="lucid.html" class="brand-card" data-types="ev luxury" data-ac="b" data-logo="LUCID"><div class="bc-cat cc-ev">&#x26A1; EV Ultra-Luxury &middot; Saudi PIF-backed</div><div class="bc-name">Lucid</div><div class="bc-sub">World production EV range record &mdash; 516 miles. The Gravity SUV launched 2024. Saudi Arabia&#39;s Public Investment Fund backs the company. Arizona factory producing at scale.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: LCID</span><span class="bc-yr">Est. 2007 &middot; Newark, CA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="workhorse.html" class="brand-card" data-types="ev truck" data-ac="b" data-logo="WKHS"><div class="bc-cat cc-ev">&#x26A1; EV Commercial &middot; Independent</div><div class="bc-name">Workhorse</div><div class="bc-sub">Ohio-based manufacturer of electric delivery vans for last-mile logistics. Customers include UPS and DHL. One of the few profitable American EV commercial builders.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: WKHS</span><span class="bc-yr">Est. 2007 &middot; Cincinnati, OH</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="karma.html" class="brand-card" data-types="ev luxury" data-ac="g" data-logo="KARMA"><div class="bc-cat cc-luxury">&#x2726; Luxury PHEV &middot; Independent</div><div class="bc-name">Karma</div><div class="bc-sub">California-based luxury PHEV brand that rose from the ashes of original Fisker. The GS-6 and Revero GT carry boutique American EV luxury forward from Moreno Valley, CA.</div><div class="bc-foot"><span class="bc-yr">Est. 2014 &middot; Moreno Valley, CA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="scout.html" class="brand-card" data-types="ev truck" data-ac="b" data-logo="SCOUT"><div class="bc-cat cc-ev">&#x26A1; EV Pre-Production &middot; VW-Backed</div><div class="bc-name">Scout Motors</div><div class="bc-sub">VW-backed revival of the legendary Scout nameplate. Electric off-road SUV and pickup targeting Bronco and Wrangler. South Carolina factory under construction. Delivery 2027.</div><div class="bc-foot"><span class="bc-yr">Est. 2022 &middot; Columbia, SC</span><span class="bc-arr">&#x2192;</span></div></a>
+  </div>
+
+  <!-- LUXURY -->
+  <div class="cat-label" id="lbl-luxury"><span class="dot" style="background:var(--gold)"></span>Luxury &amp; Near-Luxury<span class="cnt">Premium American marques</span></div>
+  <div class="brands-grid">
+    <a href="delorean.html" class="brand-card" data-types="luxury" data-ac="g" data-logo="DMC"><div class="bc-cat cc-luxury">&#x2726; Luxury Revival &middot; Independent</div><div class="bc-name">DeLorean</div><div class="bc-sub">The DeLorean Motor Company was relaunched in Texas with plans for the DMC-12 EV. Gull-wing doors, stainless steel, and Back to the Future immortality endure.</div><div class="bc-foot"><span class="bc-yr">Revived 2021 &middot; San Antonio, TX</span><span class="bc-arr">&#x2192;</span></div></a>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div class="cat-label" id="lbl-perf"><span class="dot" style="background:var(--red)"></span>Performance &amp; Specialty<span class="cnt">Hypercars, muscle, GT racing, and tuning specialists</span></div>
+  <div class="brands-grid">
+    <a href="shelby.html" class="brand-card" data-types="performance" data-ac="r" data-logo="SHELBY"><div class="bc-cat cc-perf">&#x1F3C1; Performance &middot; Independent</div><div class="bc-name">Shelby</div><div class="bc-sub">Carroll Shelby&#39;s legendary name lives on in Las Vegas. GT500, Super Snake, and Shelby F-150 variants. American performance heritage since 1962, built on Ford platforms.</div><div class="bc-foot"><span class="bc-yr">Est. 1962 &middot; Las Vegas, NV</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="saleen.html" class="brand-card" data-types="performance" data-ac="r" data-logo="SALEEN"><div class="bc-cat cc-perf">&#x1F3C1; Performance &middot; Independent</div><div class="bc-name">Saleen</div><div class="bc-sub">Steve Saleen&#39;s company in Corona, CA builds high-performance Mustang and Challenger upgrades plus its own models. The S7 supercar lineage remains an American legend.</div><div class="bc-foot"><span class="bc-yr">Est. 1983 &middot; Corona, CA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="hennessey.html" class="brand-card" data-types="performance" data-ac="r" data-logo="HPE"><div class="bc-cat cc-perf">&#x1F3C1; Hypercar &middot; Independent</div><div class="bc-name">Hennessey</div><div class="bc-sub">Texas-born hypercar builder. The Venom F5 targets over 300 mph. John Hennessey has produced some of America&#39;s most extreme and fastest road-legal vehicles.</div><div class="bc-foot"><span class="bc-yr">Est. 1991 &middot; Sealy, TX</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="ssc.html" class="brand-card" data-types="performance" data-ac="r" data-logo="SSC"><div class="bc-cat cc-perf">&#x1F3C1; Hypercar &middot; Independent</div><div class="bc-name">SSC North America</div><div class="bc-sub">Washington state hypercar maker. The SSC Tuatara claimed over 295 mph, making it one of the fastest production cars ever built by an American manufacturer.</div><div class="bc-foot"><span class="bc-yr">Est. 1998 &middot; Richland, WA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="panoz.html" class="brand-card" data-types="performance" data-ac="r" data-logo="PANOZ"><div class="bc-cat cc-perf">&#x1F3C1; GT / Racing &middot; Independent</div><div class="bc-name">Panoz</div><div class="bc-sub">Georgia-born GT car and racing brand. Le Mans pedigree, the Esperante GT, and a long relationship with IMSA define Panoz as one of America&#39;s only surviving boutique GT makers.</div><div class="bc-foot"><span class="bc-yr">Est. 1989 &middot; Braselton, GA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="callaway.html" class="brand-card" data-types="performance" data-ac="r" data-logo="CAW"><div class="bc-cat cc-perf">&#x1F3C1; Performance &middot; Independent</div><div class="bc-name">Callaway Cars</div><div class="bc-sub">Old Lyme, Connecticut performance specialist. Famous for supercharged Corvette and Camaro builds. Wringing more power from American V8s since 1977 &mdash; with factory blessing.</div><div class="bc-foot"><span class="bc-yr">Est. 1977 &middot; Old Lyme, CT</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="roush.html" class="brand-card" data-types="performance" data-ac="r" data-logo="ROUSH"><div class="bc-cat cc-perf">&#x1F3C1; Ford Performance &middot; Independent</div><div class="bc-name">Roush Performance</div><div class="bc-sub">Jack Roush&#39;s Michigan company turns stock Mustangs and F-150s into track-ready machines. NASCAR legend and one of the most credible Ford performance builders operating today.</div><div class="bc-foot"><span class="bc-yr">Est. 1995 &middot; Livonia, MI</span><span class="bc-arr">&#x2192;</span></div></a>
+  </div>
+
+  <!-- TRUCK & COMMERCIAL -->
+  <div class="cat-label" id="lbl-truck"><span class="dot" style="background:var(--orange)"></span>Truck &amp; Commercial Specialists<span class="cnt">Heavy haulers and work vehicle manufacturers</span></div>
+  <div class="brands-grid">
+    <a href="peterbilt.html" class="brand-card" data-types="truck" data-ac="o" data-logo="PETERBILT"><div class="bc-cat cc-truck">&#x1F6FB; Heavy Trucks &middot; PACCAR</div><div class="bc-name">Peterbilt</div><div class="bc-sub">Denton, Texas heavy truck maker. The long-nose Model 389 is an American trucking icon. Peterbilt builds some of the most recognizable 18-wheelers on US highways.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: PCAR</span><span class="bc-yr">Est. 1939 &middot; Denton, TX</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="kenworth.html" class="brand-card" data-types="truck" data-ac="o" data-logo="KENWORTH"><div class="bc-cat cc-truck">&#x1F6FB; Heavy Trucks &middot; PACCAR</div><div class="bc-name">Kenworth</div><div class="bc-sub">Kirkland, Washington heavy truck brand under PACCAR. T680 and W990 are favorites with owner-operators. Sister company to Peterbilt &mdash; same platform, different identity.</div><div class="bc-foot"><span class="bc-tk">NASDAQ: PCAR</span><span class="bc-yr">Est. 1923 &middot; Kirkland, WA</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="freightliner.html" class="brand-card" data-types="truck" data-ac="o" data-logo="FLN"><div class="bc-cat cc-truck">&#x1F6FB; Heavy Trucks &middot; Daimler</div><div class="bc-name">Freightliner</div><div class="bc-sub">America&#39;s best-selling heavy truck brand, owned by Daimler. The Cascadia is the top-selling Class 8 truck in the US. German-owned, American-built in Portland, OR.</div><div class="bc-foot"><span class="bc-yr">Est. 1942 &middot; Portland, OR</span><span class="bc-arr">&#x2192;</span></div></a>
+    <a href="mack.html" class="brand-card" data-types="truck" data-ac="o" data-logo="MACK"><div class="bc-cat cc-truck">&#x1F6FB; Heavy Trucks &middot; Volvo Group</div><div class="bc-name">Mack</div><div class="bc-sub">Allentown, Pennsylvania&#39;s proudest export. "Built like a Mack truck" is American slang for indestructible. Owned by Volvo Group, built at historic Macungie, PA facility.</div><div class="bc-foot"><span class="bc-yr">Est. 1900 &middot; Allentown, PA</span><span class="bc-arr">&#x2192;</span></div></a>
+  </div>
+
+</div><!-- /brands-section -->
+
+<!-- DEFUNCT CTA BAND -->
+<div class="defunct-band">
+  <div>
+    <div class="defunct-band-eyebrow">Historic American Car Brands</div>
+    <div class="defunct-band-h2">47 <em>Defunct</em><br>American Car Brands</div>
+    <p class="defunct-band-p">Pontiac. Oldsmobile. Packard. DeLorean. Tucker. The brands that defined American automotive history before their time ran out &mdash; discontinued by bankruptcy, acquisition, or changing times. Each one has a story worth knowing.</p>
+    <div class="defunct-band-brands">
+      <span class="db-chip">Pontiac 1926&ndash;2010</span>
+      <span class="db-chip">Oldsmobile 1897&ndash;2004</span>
+      <span class="db-chip">Packard 1899&ndash;1958</span>
+      <span class="db-chip">Tucker 1947&ndash;1948</span>
+      <span class="db-chip">DeLorean 1975&ndash;1982</span>
+      <span class="db-chip">Saturn 1985&ndash;2010</span>
+      <span class="db-chip">Plymouth 1928&ndash;2001</span>
+      <span class="db-chip">Mercury 1939&ndash;2011</span>
+      <span class="db-chip">Edsel 1957&ndash;1960</span>
+      <span class="db-chip">+38 more &#x2192;</span>
     </div>
+  </div>
+  <div class="defunct-band-cta">
+    <a href="defunct-american-car-brands.html" class="btn-defunct">View All 47 Defunct Brands &#x2192;</a>
+    <a href="complete-database.html" class="btn-defunct-outline">Full Database (1890&ndash;2026)</a>
+  </div>
+</div>
 
-    <!-- Dropdown Navigation Bar -->
-    <div class="nav-bar">
-        <div class="nav-container">
-            <div class="nav-item">
-                <button class="nav-btn">1. ARTISTS</button>
-                <div class="dropdown">
-                    <a href="#">Bad Bunny</a>
-                    <a href="#">Karol G</a>
-                    <a href="#">J Balvin</a>
-                    <a href="#">Daddy Yankee</a>
-                    <a href="#">Ozuna</a>
-                    <a href="#">Anuel AA</a>
-                    <a href="#">View All Artists →</a>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <button class="nav-btn">2. ALBUMS</button>
-                <div class="dropdown">
-                    <a href="#">New Releases</a>
-                    <a href="#">Top Albums 2026</a>
-                    <a href="#">Classic Reggaeton</a>
-                    <a href="#">Upcoming Albums</a>
-                    <a href="#">Featured Collections</a>
-                    <a href="#">View All Albums →</a>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <button class="nav-btn">3. MODELS</button>
-                <div class="dropdown">
-                    <a href="#">Featured Models</a>
-                    <a href="#">Music Video Stars</a>
-                    <a href="#">Cover Models</a>
-                    <a href="#">Rising Talent</a>
-                    <a href="#">Collaborations</a>
-                    <a href="#">View All Models →</a>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <button class="nav-btn">4. DISCOGRÁFICA</button>
-                <div class="dropdown">
-                    <a href="#">Rimas Entertainment</a>
-                    <a href="#">Hear This Music</a>
-                    <a href="#">Carbon Fiber Music</a>
-                    <a href="#">Pina Records</a>
-                    <a href="#">El Cartel Records</a>
-                    <a href="#">View All Labels →</a>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                <button class="nav-btn">5. NEWS</button>
-                <div class="dropdown">
-                    <a href="#">Breaking News</a>
-                    <a href="#">Tour Announcements</a>
-                    <a href="#">New Collaborations</a>
-                    <a href="#">Industry Updates</a>
-                    <a href="#">Exclusive Interviews</a>
-                    <a href="#">View All News →</a>
-                </div>
-            </div>
-        </div>
+<!-- DIRECTORY TABLE -->
+<div class="dir-sec" id="directory">
+  <div class="dir-hdr">
+    <div class="dir-title">Complete Active Brand Directory</div>
+    <div class="dir-cnt" id="dCnt">38 brands</div>
+  </div>
+  <div class="dir-ctrl">
+    <div class="dir-sw"><span class="dir-sw-ico">&#x1F50D;</span><input type="text" placeholder="Search brand, city, parent company, year&hellip;" oninput="dirFilter()" id="dsi"></div>
+    <div class="dir-flt">
+      <button class="dfb active" onclick="dirTypeFilter('all',this)">All</button>
+      <button class="dfb" onclick="dirTypeFilter('big3',this)">Big Three</button>
+      <button class="dfb" onclick="dirTypeFilter('ev',this)">&#x26A1; EV</button>
+      <button class="dfb" onclick="dirTypeFilter('luxury',this)">&#x2726; Luxury</button>
+      <button class="dfb" onclick="dirTypeFilter('performance',this)">&#x1F3C1; Performance</button>
+      <button class="dfb" onclick="dirTypeFilter('truck',this)">&#x1F6FB; Trucks</button>
     </div>
+  </div>
+  <div class="result-note" id="dNote">Showing all 38 active brands</div>
+  <div class="tbl-wrap"><table class="dt">
+    <thead><tr><th onclick="sortDir(0)">Brand <span class="sa">&#x2195;</span></th><th onclick="sortDir(1)">Founded <span class="sa">&#x2195;</span></th><th>Headquarters</th><th onclick="sortDir(3)">Parent <span class="sa">&#x2195;</span></th><th>Type</th><th>Status</th><th>Stock</th><th></th></tr></thead>
+    <tbody id="dBody">
+      <tr data-types="big3"><td><a href="ford.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Ford</a></td><td>1903</td><td>Dearborn, MI</td><td>Ford Motor Co.</td><td>Full-Line</td><td><span class="tbg tbg-a">&#x25CF; Active</span></td><td><span class="ttk">NYSE: F</span></td><td><a href="ford.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 luxury"><td><a href="lincoln.html" class="tn"><span class="tdot" style="background:var(--gold)"></span>Lincoln</a></td><td>1917</td><td>Dearborn, MI</td><td>Ford Motor Co.</td><td>Luxury</td><td><span class="tbg tbg-l">&#x2726; Luxury</span></td><td><span class="ttk">NYSE: F</span></td><td><a href="lincoln.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3"><td><a href="chevrolet.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Chevrolet</a></td><td>1911</td><td>Detroit, MI</td><td>General Motors</td><td>Full-Line</td><td><span class="tbg tbg-a">&#x25CF; Active</span></td><td><span class="ttk">NYSE: GM</span></td><td><a href="chevrolet.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 luxury"><td><a href="cadillac.html" class="tn"><span class="tdot" style="background:var(--gold)"></span>Cadillac</a></td><td>1902</td><td>Detroit, MI</td><td>General Motors</td><td>Luxury / EV</td><td><span class="tbg tbg-l">&#x2726; Luxury</span></td><td><span class="ttk">NYSE: GM</span></td><td><a href="cadillac.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 luxury"><td><a href="buick.html" class="tn"><span class="tdot" style="background:var(--gold)"></span>Buick</a></td><td>1899</td><td>Detroit, MI</td><td>General Motors</td><td>Near-Luxury</td><td><span class="tbg tbg-l">&#x2726; Luxury</span></td><td><span class="ttk">NYSE: GM</span></td><td><a href="buick.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 truck"><td><a href="gmc.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>GMC</a></td><td>1911</td><td>Detroit, MI</td><td>General Motors</td><td>Trucks / SUVs</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="ttk">NYSE: GM</span></td><td><a href="gmc.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 performance"><td><a href="dodge.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Dodge</a></td><td>1900</td><td>Auburn Hills, MI</td><td>Stellantis</td><td>Performance</td><td><span class="tbg tbg-p">&#x1F3C1; Performance</span></td><td><span class="ttk">NYSE: STLA</span></td><td><a href="dodge.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 truck"><td><a href="ram.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Ram</a></td><td>2010</td><td>Auburn Hills, MI</td><td>Stellantis</td><td>Trucks</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="ttk">NYSE: STLA</span></td><td><a href="ram.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3 truck"><td><a href="jeep.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Jeep</a></td><td>1943</td><td>Toledo, OH</td><td>Stellantis</td><td>Off-Road / SUV</td><td><span class="tbg tbg-a">&#x25CF; Active</span></td><td><span class="ttk">NYSE: STLA</span></td><td><a href="jeep.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="big3"><td><a href="chrysler.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Chrysler</a></td><td>1925</td><td>Auburn Hills, MI</td><td>Stellantis</td><td>Full-Line</td><td><span class="tbg tbg-a">&#x25CF; Active</span></td><td><span class="ttk">NYSE: STLA</span></td><td><a href="chrysler.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev"><td><a href="tesla.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Tesla</a></td><td>2003</td><td>Austin, TX</td><td>Independent</td><td>EV Only</td><td><span class="tbg tbg-e">&#x26A1; EV Leader</span></td><td><span class="ttk">NASDAQ: TSLA</span></td><td><a href="tesla.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev truck"><td><a href="rivian.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Rivian</a></td><td>2009</td><td>Irvine, CA</td><td>Independent</td><td>EV Trucks</td><td><span class="tbg tbg-e">&#x26A1; EV</span></td><td><span class="ttk">NASDAQ: RIVN</span></td><td><a href="rivian.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev luxury"><td><a href="lucid.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Lucid</a></td><td>2007</td><td>Newark, CA</td><td>Saudi PIF</td><td>EV Ultra-Luxury</td><td><span class="tbg tbg-e">&#x26A1; EV</span></td><td><span class="ttk">NASDAQ: LCID</span></td><td><a href="lucid.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev truck"><td><a href="workhorse.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Workhorse</a></td><td>2007</td><td>Cincinnati, OH</td><td>Independent</td><td>EV Commercial</td><td><span class="tbg tbg-e">&#x26A1; EV</span></td><td><span class="ttk">NASDAQ: WKHS</span></td><td><a href="workhorse.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev luxury"><td><a href="karma.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Karma</a></td><td>2014</td><td>Moreno Valley, CA</td><td>Independent</td><td>Luxury PHEV</td><td><span class="tbg tbg-e">&#x26A1; PHEV</span></td><td><span class="tpv">Private</span></td><td><a href="karma.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="ev truck"><td><a href="scout.html" class="tn"><span class="tdot" style="background:var(--blue)"></span>Scout Motors</a></td><td>2022</td><td>Columbia, SC</td><td>Volkswagen</td><td>EV Off-Road</td><td><span class="tbg tbg-e">&#x26A1; Pre-Prod</span></td><td><span class="tpv">VW-Backed</span></td><td><a href="scout.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="luxury"><td><a href="delorean.html" class="tn"><span class="tdot" style="background:var(--gold)"></span>DeLorean</a></td><td>2021</td><td>San Antonio, TX</td><td>Independent</td><td>Luxury Revival</td><td><span class="tbg tbg-l">&#x2726; Revival</span></td><td><span class="tpv">Private</span></td><td><a href="delorean.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="shelby.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Shelby</a></td><td>1962</td><td>Las Vegas, NV</td><td>Independent</td><td>Performance</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="shelby.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="saleen.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Saleen</a></td><td>1983</td><td>Corona, CA</td><td>Independent</td><td>Performance</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="saleen.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="hennessey.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Hennessey</a></td><td>1991</td><td>Sealy, TX</td><td>Independent</td><td>Hypercar</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="hennessey.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="ssc.html" class="tn"><span class="tdot" style="background:var(--red)"></span>SSC North America</a></td><td>1998</td><td>Richland, WA</td><td>Independent</td><td>Hypercar</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="ssc.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="panoz.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Panoz</a></td><td>1989</td><td>Braselton, GA</td><td>Independent</td><td>GT / Racing</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="panoz.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="callaway.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Callaway Cars</a></td><td>1977</td><td>Old Lyme, CT</td><td>Independent</td><td>Performance</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="callaway.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="performance"><td><a href="roush.html" class="tn"><span class="tdot" style="background:var(--red)"></span>Roush Performance</a></td><td>1995</td><td>Livonia, MI</td><td>Independent</td><td>Ford Performance</td><td><span class="tbg tbg-p">&#x1F3C1; Perf.</span></td><td><span class="tpv">Private</span></td><td><a href="roush.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="truck"><td><a href="peterbilt.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Peterbilt</a></td><td>1939</td><td>Denton, TX</td><td>PACCAR</td><td>Heavy Trucks</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="ttk">NASDAQ: PCAR</span></td><td><a href="peterbilt.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="truck"><td><a href="kenworth.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Kenworth</a></td><td>1923</td><td>Kirkland, WA</td><td>PACCAR</td><td>Heavy Trucks</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="ttk">NASDAQ: PCAR</span></td><td><a href="kenworth.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="truck"><td><a href="freightliner.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Freightliner</a></td><td>1942</td><td>Portland, OR</td><td>Daimler</td><td>Heavy Trucks</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="tpv">Daimler-owned</span></td><td><a href="freightliner.html" class="tv">View &#x2192;</a></td></tr>
+      <tr data-types="truck"><td><a href="mack.html" class="tn"><span class="tdot" style="background:var(--orange)"></span>Mack</a></td><td>1900</td><td>Allentown, PA</td><td>Volvo Group</td><td>Heavy Trucks</td><td><span class="tbg tbg-t">&#x1F6FB; Trucks</span></td><td><span class="tpv">Volvo-owned</span></td><td><a href="mack.html" class="tv">View &#x2192;</a></td></tr>
+    </tbody>
+  </table></div>
+</div>
 
-    <!-- Content -->
-    <div class="content">
-        <!-- Latest Releases with Stock Photos -->
-        <div class="section">
-            <h2 class="section-title">LATEST DROPS</h2>
-            <div class="album-grid">
-                <!-- Bad Bunny -->
-                <div class="album-card">
-                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80');">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="album-info">
-                        <div class="album-name">NADIE SABE</div>
-                        <div class="album-artist">Bad Bunny</div>
-                        <div class="album-date">Feb 14, 2026</div>
-                        <div class="stream-links">
-                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
-                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
-                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
-                        </div>
-                    </div>
-                </div>
+<!-- SEO -->
+<div class="seo">
+  <h2>About AmericanCarBrands.com</h2>
+  <p>AmericanCarBrands.com is the most comprehensive reference on American automobile brands ever compiled. From Ford&#39;s founding in 1903 to the latest EV startups in 2026, we track every brand that shaped American automotive culture.</p>
+  <p>There are currently <strong>38 active American car brands</strong> in production in 2026. Over 47 major brands have been discontinued &mdash; see our <a href="defunct-american-car-brands.html">Defunct Brands page</a> for the full history. For insurance costs and ownership guides, visit our <a href="insurance-quote.html">Insurance Cost Center</a>.</p>
+</div>
 
-                <!-- Karol G -->
-                <div class="album-card">
-                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80');">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="album-info">
-                        <div class="album-name">MI EX TENÍA RAZÓN</div>
-                        <div class="album-artist">Karol G</div>
-                        <div class="album-date">Feb 12, 2026</div>
-                        <div class="stream-links">
-                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
-                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
-                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- J Balvin -->
-                <div class="album-card">
-                    <div class="artist-photo" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80');">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="album-info">
-                        <div class="album-name">TRANQUILO</div>
-                        <div class="album-artist">J Balvin</div>
-                        <div class="album-date">Feb 10, 2026</div>
-                        <div class="stream-links">
-                            <a href="https://open.spotify.com" class="stream-btn" target="_blank">Spotify</a>
-                            <a href="https://music.apple.com" class="stream-btn" target="_blank">Apple Music</a>
-                            <a href="https://youtube.com" class="stream-btn" target="_blank">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ad Zone 1 -->
-        <div class="ad-zone">
-            <div class="ad-label">SPONSORED</div>
-            <div class="ad-content">
-                <div>
-                    <p><strong style="color: #FF1744; font-size: 1.3rem;">BANNER AD - 728x90</strong></p>
-                    <p style="margin-top: 1rem;">Google AdSense Code Here</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Or Direct Sponsor Banner</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Animated Playlist Section -->
-        <div class="playlist-section">
-            <div class="playlist-container">
-                <div class="playlist-header">
-                    <h2 class="playlist-title">🔥 FUEGO PLAYLIST</h2>
-                    <p class="playlist-subtitle">Top reggaeton hits • Updated daily</p>
-                </div>
-                <div class="playlist-box">
-                    <div class="embed-instructions">
-                        <strong>🎵 EMBED YOUR PLAYLIST HERE</strong>
-                        <p style="margin: 1rem 0;">Replace this section with your streaming embed code</p>
-                        <div class="embed-examples">
-                            <p><strong style="color: #F50057;">YouTube Playlist:</strong><br>
-                            <code style="color: #888;">&lt;iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=YOUR_PLAYLIST_ID" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></p>
-                            
-                            <p style="margin-top: 1rem;"><strong style="color: #1DB954;">Spotify Playlist:</strong><br>
-                            <code style="color: #888;">&lt;iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/YOUR_PLAYLIST_ID" width="100%" height="450" frameBorder="0"&gt;&lt;/iframe&gt;</code></p>
-                            
-                            <p style="margin-top: 1rem;"><strong style="color: #FF5500;">SoundCloud Playlist:</strong><br>
-                            <code style="color: #888;">&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=YOUR_PLAYLIST_URL"&gt;&lt;/iframe&gt;</code></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ad Zone 2 -->
-        <div class="ad-zone">
-            <div class="ad-label">SPONSORED</div>
-            <div class="ad-content">
-                <div>
-                    <p><strong style="color: #FF1744; font-size: 1.3rem;">RECTANGLE AD - 300x250</strong></p>
-                    <p style="margin-top: 1rem;">Google AdSense Code Here</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ad Zone 3 -->
-        <div class="ad-zone">
-            <div class="ad-label">SPONSORED</div>
-            <div class="ad-content">
-                <div>
-                    <p><strong style="color: #FF1744; font-size: 1.3rem;">LEADERBOARD AD - 970x250</strong></p>
-                    <p style="margin-top: 1rem;">Premium Sponsor Banner</p>
-                </div>
-            </div>
-        </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">AMERICAN<span>CAR</span>BRANDS</div>
+      <p class="footer-desc">The most complete resource on American car brands ever compiled. Researched, written, and maintained for car enthusiasts, researchers, and curious minds.</p>
     </div>
+    <div>
+      <div class="footer-col-title">Active Brands</div>
+      <ul class="footer-links"><li><a href="ford.html">Ford</a></li><li><a href="chevrolet.html">Chevrolet</a></li><li><a href="dodge.html">Dodge</a></li><li><a href="cadillac.html">Cadillac</a></li><li><a href="tesla.html">Tesla</a></li><li><a href="rivian.html">Rivian</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Historic Brands</div>
+      <ul class="footer-links"><li><a href="defunct-american-car-brands.html">Pontiac</a></li><li><a href="defunct-american-car-brands.html">Oldsmobile</a></li><li><a href="defunct-american-car-brands.html">Packard</a></li><li><a href="defunct-american-car-brands.html">Tucker</a></li><li><a href="defunct-american-car-brands.html">Edsel</a></li><li><a href="defunct-american-car-brands.html">All 47 Defunct &#x2192;</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links"><li><a href="american-ev-startups.html">EV Startups</a></li><li><a href="complete-database.html">Full Database</a></li><li><a href="insurance-quote.html">Insurance Guide</a></li><li><a href="active-american-car-brands.html">Active Brands</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 AmericanCarBrands.com &middot; The Definitive American Car Brand Resource</span>
+    <div class="footer-social">
+      <a href="https://instagram.com/americancarbrands" target="_blank" rel="noopener" class="ig" title="Instagram @americancarbrands"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://tiktok.com/@americancarbrands" target="_blank" rel="noopener" class="tt" title="TikTok @americancarbrands"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></a>
+      <a href="https://x.com/USAutoBrands" target="_blank" rel="noopener" class="xc" title="X @USAutoBrands"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="/cdn-cgi/l/email-protection#52333f37203b31333c3133203020333c3612353f333b3e7c313d3f" class="gm" title="Email us"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    </div>
+    <span class="footer-flag">&#x1F1FA;&#x1F1F8;</span>
+  </div>
+</footer>
 
-    <!-- Footer -->
-    <footer>
-        <p style="font-size: 1.2rem; color: #FF1744; margin-bottom: 1rem;">🔥 REGGAETONX 🔥</p>
-        <p>&copy; 2026 ReggaetonX.com - All Rights Reserved</p>
-        <p style="margin-top: 1rem;">
-            <a href="#">Privacy Policy</a> • 
-            <a href="#">Terms of Service</a> • 
-            <a href="#">Advertise With Us</a> • 
-            <a href="#">Contact</a>
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">
-            All music embedded legally from official streaming services
-        </p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-            Stock photos from Unsplash (royalty-free)
-        </p>
-    </footer>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function setFs(s){
+  document.documentElement.classList.remove('fs-sm','fs-md','fs-lg');
+  document.documentElement.classList.add(s);
+  const m={'fs-sm':'fs1','fs-md':'fs2','fs-lg':'fs3'};
+  ['fs1','fs2','fs3'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById(m[s]).classList.add('on');
+  try{localStorage.setItem('acb-fs',s);}catch(e){}
+}
+(function(){try{const s=localStorage.getItem('acb-fs');if(s)setFs(s);else setFs('fs-md');}catch(e){setFs('fs-md');}})();
+
+let aType='all',dType='all',sAsc={};
+
+function filterByType(type,el){
+  document.querySelectorAll('.stat-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  aType=type;
+  document.getElementById('csi').value='';
+  const m={all:'All Active',big3:'Big Three',luxury:'\u2726 Luxury',ev:'\u26A1 EV',performance:'\u1F3C1 Performance',truck:'\u1F6FB Trucks'};
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().includes(
+    {all:'All Active',big3:'Big Three',luxury:'Luxury',ev:'EV',performance:'Performance',truck:'Trucks'}[type]||''
+  )));
+  applyCards();
+  document.getElementById('cardsSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function cardFilter(type,btn){
+  aType=type;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.stat-pill').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.stat-pill')[0].classList.add('active');
+  document.getElementById('csi').value='';
+  applyCards();
+}
+
+function cardSearch(q){
+  document.querySelectorAll('.brand-card').forEach(c=>{
+    const mt=c.textContent.toLowerCase().includes(q.toLowerCase());
+    const mf=aType==='all'||(c.dataset.types||'').includes(aType);
+    c.classList.toggle('card-hidden',!(mt&&mf));
+  });
+  updateLabels();
+}
+
+function applyCards(){
+  document.querySelectorAll('.brand-card').forEach(c=>{
+    c.classList.toggle('card-hidden',aType!=='all'&&!(c.dataset.types||'').includes(aType));
+  });
+  updateLabels();
+}
+
+function updateLabels(){
+  ['lbl-big3','lbl-ev','lbl-luxury','lbl-perf','lbl-truck'].forEach(id=>{
+    const l=document.getElementById(id);if(!l)return;
+    const g=l.nextElementSibling;if(!g)return;
+    const any=[...g.querySelectorAll('.brand-card')].some(c=>!c.classList.contains('card-hidden'));
+    l.style.display=any?'':'none';
+    g.style.display=any?'':'none';
+  });
+}
+
+function dirFilter(){
+  const q=document.getElementById('dsi').value.toLowerCase();
+  const rows=document.querySelectorAll('#dBody tr');let v=0;
+  rows.forEach(r=>{
+    const ok=(!q||r.textContent.toLowerCase().includes(q))&&(dType==='all'||(r.dataset.types||'').includes(dType));
+    r.classList.toggle('rh',!ok);if(ok)v++;
+  });
+  document.getElementById('dCnt').textContent=v+' brands';
+  document.getElementById('dNote').textContent=(q||dType!=='all')?'Showing '+v+' of 38 brands':'Showing all 38 active brands';
+}
+
+function dirTypeFilter(type,btn){
+  dType=type;
+  document.querySelectorAll('.dfb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('dsi').value='';
+  dirFilter();
+}
+
+function sortDir(col){
+  sAsc[col]=!sAsc[col];const asc=sAsc[col];
+  const tbody=document.getElementById('dBody');
+  const rows=Array.from(tbody.querySelectorAll('tr'));
+  document.querySelectorAll('.dt th').forEach((th,i)=>{
+    th.classList.toggle('sorted',i===col);
+    const sa=th.querySelector('.sa');if(sa)sa.textContent=i===col?(asc?'\u2191':'\u2193'):'\u2195';
+  });
+  rows.sort((a,b)=>{
+    const av=a.cells[col]?.textContent.trim().toLowerCase()||'';
+    const bv=b.cells[col]?.textContent.trim().toLowerCase()||'';
+    const an=parseInt(av),bn=parseInt(bv);
+    if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
+    return asc?av.localeCompare(bv):bv.localeCompare(av);
+  });
+  rows.forEach(r=>tbody.appendChild(r));
+}
+
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}});},{threshold:0.06});
+document.querySelectorAll('.brand-card').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(14px)';
+  el.style.transition
