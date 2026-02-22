@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--red:#C8102E;--red-dark:#9B0B22;--white:#F5F0E8;--off-white:#EDE8DC;--gray-light:#C9C4B8;--gray:#7A7570;--black:#0D0D0D;--dark:#141414;--dark2:#1C1C1C;--dark3:#242424;--gold:#C9962A;--green:#2DB37A;--blue:#1A6FD4;--orange:#E07B39;}
-html{font-size:17px;scroll-behavior:smooth;}html.fs-sm{font-size:15px;}html.fs-md{font-size:17px;}html.fs-lg{font-size:20px;}
+html{font-size:19px;scroll-behavior:smooth;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.65;overflow-x:hidden;}
 
@@ -158,9 +158,36 @@ footer{background:#080808;padding:60px;border-top:1px solid rgba(255,255,255,0.0
   .fsw{margin-left:0;width:100%;}.fsw input{width:100%;}
   .fs-toggle{bottom:12px;right:12px;}.footer-top{grid-template-columns:1fr 1fr;}.defunct-band{flex-direction:column;}
 }
+
+/* ── FLOATING WIDGET ── */
+.acb-widget{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:stretch;background:#1C1C1C;border:1px solid rgba(255,255,255,0.22);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.85);font-family:'Barlow Condensed',sans-serif;}
+.acb-widget a,.acb-widget button{padding:13px 15px;background:transparent;color:rgba(255,255,255,0.75);border:none;border-right:1px solid rgba(255,255,255,0.1);font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:0.04em;cursor:pointer;transition:all .15s;line-height:1;text-decoration:none;display:flex;align-items:center;justify-content:center;white-space:nowrap;}
+.acb-widget a:last-child,.acb-widget button:last-child{border-right:none;}
+.acb-widget a:hover,.acb-widget button:hover{background:#242424;color:#fff;}
+.acb-widget .w-home{font-size:1rem;}
+.acb-widget .w-top{font-size:1.2rem;font-weight:900;}
+.acb-widget .w-label{font-size:0.55rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);padding:0 10px;border-right:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;background:#141414;cursor:default;}
+.acb-widget button.w-on{background:#C8102E;color:#fff;}
+.acb-widget button.w-on:hover{background:#9B0B22;}
+
+
+
+@media(max-width:600px){.acb-widget{bottom:12px;right:12px;}}
+
 </style>
 </head>
 <body>
+
+<!-- ── FLOATING WIDGET: Home + Top + Font Size ── -->
+<div class="acb-widget" id="acbWidget">
+  <a href="index.html" class="w-home" title="Return to Main Page">&#x1F3E0; Home</a>
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-top" title="Back to top">&#x2191;</button>
+  <span class="w-label">Font</span>
+  <button id="acbFs1" onclick="acbSetFs('sm')" title="Small text">A</button>
+  <button id="acbFs2" onclick="acbSetFs('md')" title="Medium text" class="w-on">A+</button>
+  <button id="acbFs3" onclick="acbSetFs('lg')" title="Large text">A++</button>
+</div>
+
 
 <!-- FLOATING WIDGET -->
 <div class="fs-toggle">
@@ -231,8 +258,8 @@ footer{background:#080808;padding:60px;border-top:1px solid rgba(255,255,255,0.0
     <div class="stat-l">Active Brands &#x2197;</div>
   </div>
   <div class="stat-pill" data-uc="gr" onclick="filterByType('big3',this)">
-    <div class="stat-n" style="color:var(--green)">38</div>
-    <div class="stat-l">Active (2026) &#x2197;</div>
+    <div class="stat-n" style="color:var(--green)">10</div>
+    <div class="stat-l">Big Three &#x2197;</div>
   </div>
   <div class="stat-pill" data-uc="g" onclick="filterByType('luxury',this)">
     <div class="stat-n" style="color:var(--gold)">6</div>
